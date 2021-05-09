@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+mongoengine-goodjson = "==1.1.8"
+Flask = "==1.1.2"
+mongoengine = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
