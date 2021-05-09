@@ -1,10 +1,14 @@
-version: "3.9"
+version: "3.3"
 services: 
-    db: 
-        container_name: sql_server_db
-        image: mcr.microsoft.com/mssql/server:2019-latest
-        ports: 
-            - "1433:1433"
-        environment: 
-            SA_PASSWORD: "Qwerty@123"
-            ACCEPT_EULA: "Y"
+    mongodb_container: 
+        container_name: mongodb
+        image: mongo:latest
+        ports:
+            - 27017:27017
+        volumes:
+            - mongodb_data_container:/data/db
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: rootpassword
+volumes:
+    mongodb_data_container:

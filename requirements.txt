@@ -1,1 +1,3 @@
 Flask==1.1.2
+mongoengine==3.11.4
+mongoengine-goodjson==1.1.8
