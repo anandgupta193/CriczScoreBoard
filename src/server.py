@@ -1,16 +1,26 @@
 from flask import Flask
-from flask import Blueprint
 from mongoengine import connect
 
 import config
-import blueprints
+import helpers.utils as Utils
 
 server = Flask(__name__)
-connect(config.DB_NAME, host='localhost', port=27017, username='root', password='rootpassword', authentication_source='admin')
 
+"""
+DB Connection
+"""
+connect(
+    config.DB_NAME,
+    host=config.DB_HOST,
+    port=config.DB_PORT,
+    username=config.DB_USER,
+    password=config.DB_PASS,
+    authentication_source=config.DB_AUTH_SOURCE
+    )
 
-for blueprint in vars(blueprints).values():
-    if isinstance(blueprint, Blueprint):
-        server.register_blueprint(blueprint, url_prefix=config.APPLICATION_ROOT)
+"""
+Registering Blueprints
+"""
+Utils.registerBlueprints(server)
 
 server.run(host=config.HOST, port=config.PORT)
