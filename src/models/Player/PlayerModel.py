@@ -1,7 +1,7 @@
-from mongoengine import *
-import mongoengine_goodjson as gj
+from mongoengine import StringField, IntField
+import mongoengine_goodjson as GoodJSON
 
-class Player(gj.Document):
+class Player(GoodJSON.Document):
    playerId = StringField(required=True)
    name = StringField(max_length=50)
    age = IntField()

@@ -16,8 +16,8 @@ def getPlayers():
 @PLAYER_BLUEPRINT.route('/player', methods=["POST"])
 def createPlayer():
     data = json.loads(request.data)
-    createdRecord = Player(age=data["age"], playerId=data["playerid"], name=data["name"]).save()
-    return {'data': json.loads(createdRecord.to_json())},201
+    createdRecord = Player(age=data["age"], playerId=data["playerId"], name=data["name"]).save()
+    return {'data': json.loads(createdRecord.to_json())}, 201
 
 @PLAYER_BLUEPRINT.route('/player', methods=['PATCH'])
 def updatePlayer():
