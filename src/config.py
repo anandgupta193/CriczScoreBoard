@@ -4,6 +4,7 @@ APPLICATION_ROOT='/api'
 DEBUG = os.getenv("ENVIRONEMENT") == "DEV"
 HOST=HOST = os.getenv("APPLICATION_HOST")
 PORT = int(os.getenv("APPLICATION_PORT", "3000"))
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 DB_NAME = "cricScorz"
 DB_HOST = "localhost"
