@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, abort, jsonify
+from flask import Blueprint, jsonify
 import blueprints
 import config
 from werkzeug.exceptions import HTTPException

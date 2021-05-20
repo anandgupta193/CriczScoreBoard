@@ -8,7 +8,6 @@ def authorize(f):
     def decorated_function(*args, **kargs):
         if not 'Authorization' in request.headers:
             abort(401)
-        user = None
         data = request.headers['Authorization']
         token = str.replace(str(data), 'Bearer ','')
         try:
