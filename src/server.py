@@ -23,4 +23,9 @@ Registering Blueprints
 """
 Utils.registerBlueprints(server)
 
+"""
+Registering Error Handler
+"""
+Utils.registerErrorHandler(server)
+
 server.run(host=config.HOST, port=config.PORT)
