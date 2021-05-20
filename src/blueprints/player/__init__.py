@@ -4,11 +4,13 @@ Defines the blueprint for the Player
 from flask import Blueprint, request
 from models import Player
 import json
+from decorators.loginRequired import authorize
 
 
 PLAYER_BLUEPRINT = Blueprint("player", __name__)
 
 @PLAYER_BLUEPRINT.route('/players', methods=["GET"])
+@authorize
 def getPlayers():
     players = Player.objects
     return {'data': json.loads(players.to_json())}

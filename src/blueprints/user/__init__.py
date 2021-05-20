@@ -1,7 +1,7 @@
 """
 Defines the blueprint for the User
 """
-from flask import Blueprint, request
+from flask import Blueprint, request, abort
 import json
 
 from models import User
@@ -19,11 +19,11 @@ USER_BLUEPRINT = Blueprint("user", __name__)
 def createUser():
     data = json.loads(request.data)
     if not check_password(data):
-        return {"error": "Passwords do not match"}, 400
+        return abort(400,"Passwords do not match")
     if "email" not in data:
-        return {"error": "Email is mandatory"}, 400
+        return abort(400,"mail is mandatory")
     if (is_email_exists(data["email"])):
-        return {"error": "Email already exists"}, 409
+        return abort (409,"Email already exists")
     key, salt = generate_password_hash(data["password"])
     user = User(
         name = data["name"],
@@ -41,7 +41,7 @@ def loginUser():
     data = json.loads(request.data)
     for user in User.objects(email=data["email"]):
         if not is_password_correct(data["password"], user.passwordSalt, user.passwordHash):
-            return {"error": "Wrong Password..."}, 401
+            return abort(401)
         # generate JWT
         token, exp_time = generate_jwt(user)
         return {"access_token" : 'Bearer ' + token, "expiresOn" : exp_time}, 200
