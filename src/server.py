@@ -1,10 +1,12 @@
 from flask import Flask
 from mongoengine import connect
-
 import config
 import helpers.utils as Utils
 
+
 server = Flask(__name__)
+
+server.debug = config.DEBUG
 
 """
 DB Connection
@@ -27,5 +29,16 @@ Utils.registerBlueprints(server)
 Registering Error Handler
 """
 Utils.registerErrorHandler(server)
+
+"""
+Registering Logger
+"""
+Utils.registerLogger()
+
+"""
+Registering Swagger
+"""
+
+Utils.registerSwagger(server)
 
 server.run(host=config.HOST, port=config.PORT)

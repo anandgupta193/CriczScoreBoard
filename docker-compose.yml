@@ -1,5 +1,5 @@
 version: "3.3"
-services: 
+services:
     mongodb_container: 
         container_name: mongodb
         image: mongo:latest
@@ -10,5 +10,14 @@ services:
         environment:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    criczscore_app: 
+        container_name: criczscore
+        image: flask:latest
+        # build: .
+        ports:
+            - 3000:3000
+        # command : python src/server.py
+        volumes:
+            - .:/code
 volumes:
     mongodb_data_container:

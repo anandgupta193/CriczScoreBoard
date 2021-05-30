@@ -1,0 +1,5 @@
+Flask==1.1.2
+mongoengine==0.23.1
+pyjwt==2.1.0
+mongoengine-goodjson==1.1.8
+flask-swagger-ui==3.36.0

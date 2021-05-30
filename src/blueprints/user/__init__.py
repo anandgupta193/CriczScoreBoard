@@ -46,3 +46,6 @@ def loginUser():
         token, exp_time = generate_jwt(user)
         return {"access_token" : 'Bearer ' + token, "expiresOn" : exp_time}, 200
     
+@USER_BLUEPRINT.route('/status', methods=["get"])
+def statusCheck():
+    return {"status" : "up"}, 200
