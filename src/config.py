@@ -2,7 +2,7 @@ import os
 import logging
 
 
-APPLICATION_ROOT = '/api'
+APPLICATION_ROOT = "/api"
 DEBUG = os.getenv("ENVIRONEMENT") == "DEV"
 HOST = HOST = os.getenv("APPLICATION_HOST")
 PORT = int(os.getenv("APPLICATION_PORT", "3000"))
@@ -17,9 +17,9 @@ DB_PASS = "rootpassword"
 DB_AUTH_SOURCE = "admin"
 
 LOG_CONFIG = {
-    'filename': 'reports/appLogs/server.log',
-    'filemode': 'a',
-    'format': '%(asctime)s, %(msecs)d %(name)s %(levelname)s %(message)s',
-    'datefmt': '%H:%M:%S',
-    'level': logging.INFO
-    }
+    "filename": "reports/appLogs/server.log",
+    "filemode": "a",
+    "format": "%(asctime)s, %(msecs)d %(name)s %(levelname)s %(message)s",
+    "datefmt": "%H:%M:%S",
+    "level": logging.INFO,
+}

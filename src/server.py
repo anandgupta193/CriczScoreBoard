@@ -17,8 +17,8 @@ connect(
     port=config.DB_PORT,
     username=config.DB_USER,
     password=config.DB_PASS,
-    authentication_source=config.DB_AUTH_SOURCE
-    )
+    authentication_source=config.DB_AUTH_SOURCE,
+)
 
 """
 Registering Blueprints

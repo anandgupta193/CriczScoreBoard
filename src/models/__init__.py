@@ -1,6 +1,11 @@
+import logging
+
 """
 Defines the model for the entities
 """
 
-from .Player.PlayerModel import Player
-from .User.UserModel import User
+from models.PlayerModel import Player
+from models.UserModel import User
+
+
+logging.debug(f"Models Initialized with {Player} and {User}")

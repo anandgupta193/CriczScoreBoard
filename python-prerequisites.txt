@@ -1,4 +1,3 @@
 All Necessary Commands
 
 Go Inside docker container -- docker exec -it mongodb_container "bash"
-
