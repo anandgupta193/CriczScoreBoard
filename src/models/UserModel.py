@@ -1,10 +1,4 @@
-from mongoengine import (
-    StringField,
-    IntField,
-    EmailField,
-    DateTimeField,
-    BooleanField
-)
+from mongoengine import StringField, IntField, EmailField, DateTimeField, BooleanField
 import mongoengine_goodjson as GoodJSON
 import datetime
 

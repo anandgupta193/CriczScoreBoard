@@ -122,7 +122,24 @@
         "tags": [
           "Player"
         ],
-        "summary": "Update Player details",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "description": "Playerid to update record",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "name",
+            "description": "Value to be update",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/playerPatch"
+            }
+          }
+        ],
         "security": [
           {
             "Token": []
@@ -139,6 +156,15 @@
           "Player"
         ],
         "summary": "Remove Player form Database",
+        "parameters": [
+          {
+            "name": "playerId",
+            "in": "query",
+            "description": "Playerid to update record",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "security": [
           {
             "Token": []
@@ -191,6 +217,16 @@
         "type": "string"
       },
       "playerId": {
+        "type": "string"
+      }
+    }
+  },
+  "playerPatch": {
+    "properties": {
+      "age": {
+        "type": "string"
+      },
+      "name": {
         "type": "string"
       }
     }
