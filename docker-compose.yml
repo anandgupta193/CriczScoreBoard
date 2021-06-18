@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.7"
 services:
     mongodb_container:
         container_name: mongodb
@@ -12,12 +12,22 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: rootpassword
     criczscore_app:
         container_name: criczscore
-        image: flask:latest
-        # build: .
+        build: .
         ports:
             - 3000:3000
         # command : python src/server.py
         volumes:
             - .:/code
+    jenkins:
+        image: jenkins/jenkins:lts
+        privileged: true
+        user: root
+        ports:
+            - 8083:8080
+            - 50003:50000
+        container_name: jenkins
+        volumes:
+            - ~/jenkins_data:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock
 volumes:
     mongodb_data_container:
