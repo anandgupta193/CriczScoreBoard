@@ -7,7 +7,6 @@ import json
 import logging
 from decorators import authorize
 
-
 PLAYER_BLUEPRINT = Blueprint("player", __name__)
 
 
