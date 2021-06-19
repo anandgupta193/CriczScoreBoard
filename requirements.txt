@@ -4,3 +4,4 @@ pyjwt==2.1.0
 mongoengine-goodjson==1.1.8
 flask-swagger-ui==3.36.0
 pre-commit==2.13.0
+gunicorn==20.1.0
