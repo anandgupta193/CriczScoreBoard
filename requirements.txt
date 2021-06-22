@@ -1,8 +1,8 @@
 flake8
 Flask
-Flask-Compress
 flask-swagger-ui
 gunicorn
 pre-commit
 mongoengine
 mongoengine_goodjson
+pyjwt
