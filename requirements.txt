@@ -5,3 +5,4 @@ flask-swagger-ui
 gunicorn
 pre-commit
 mongoengine
+mongoengine_goodjson
